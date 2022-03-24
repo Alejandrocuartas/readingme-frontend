@@ -18,7 +18,7 @@ const FormModal = ({ isOpen, onClose, renderParam, setRenderParam }) => {
         try {
             setLoading(true);
             const res = await fetch(
-                "http://localhost:8080/api/posts/create",
+                "https://readingme-ale31jo.herokuapp.com/api/posts/create",
                 requestOptions
             );
 

@@ -10,14 +10,16 @@ const HomePage = () => {
     const [renderParam, setRenderParam] = useState(false);
     const onClose = () => setOpen(false);
     useEffect(() => {
-        fetch("http://localhost:8080/api/posts").then(async (res) => {
-            if (!res.ok) {
-                return null;
+        fetch("https://readingme-ale31jo.herokuapp.com/api/posts").then(
+            async (res) => {
+                if (!res.ok) {
+                    return null;
+                }
+                const response = await res.json();
+                setData(response);
+                setLoading(false);
             }
-            const response = await res.json();
-            setData(response);
-            setLoading(false);
-        });
+        );
     }, [renderParam]);
     if (loading) {
         return <h1>Loading...</h1>;

@@ -24,11 +24,14 @@ const LoginPage = () => {
         };
         try {
             const res = await fetch(
-                `http://localhost:8080/api/${url}`,
+                `https://readingme-ale31jo.herokuapp.com/api/${url}`,
                 options
             );
             if (logState === "signup") {
-                await fetch("http://localhost:8080/api/auth/login", options);
+                await fetch(
+                    "https://readingme-ale31jo.herokuapp.com/api/auth/login",
+                    options
+                );
             }
             if (!res.ok) {
                 alert("Incorrect password or username");
