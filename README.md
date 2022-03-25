@@ -1,6 +1,6 @@
 # readingme-frontend
 Link for the deployed app: https://readingme-alejo.netlify.app/
-Sign up and post something
+Sign up and post something!
 # MERN stack app
 ### Frontend
 Webpack, Bootstrap, Context, CSS, React router v6 and hooks
