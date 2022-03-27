@@ -47,6 +47,9 @@ const Navbar = () => {
                     />
                     eadingme
                 </Link>
+                <Link className="navbar-brand btn" to="/docs">
+                    Docs
+                </Link>
                 <div className="me-auto">
                     <Link
                         to={logState === "logged" ? "/" : "/enter"}
