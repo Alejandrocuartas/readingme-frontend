@@ -6,7 +6,7 @@ const Post = ({ postcomment, image, username }) => {
     return (
         <React.Fragment>
             <div
-                className="col-md-3 col-sm-4 mb-2 mr-1"
+                className="col-md-3 col-sm-4 mb-2 mr-1 col-xs-12"
                 style={{ height: "300px" }}
             >
                 <div className="card" style={{ width: "15rem" }}>

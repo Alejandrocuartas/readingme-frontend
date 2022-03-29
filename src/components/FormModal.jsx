@@ -16,6 +16,9 @@ const FormModal = ({ isOpen, onClose, renderParam, setRenderParam }) => {
             credentials: "include",
         };
         try {
+            if (loading) {
+                return;
+            }
             setLoading(true);
             const res = await fetch(
                 "https://readingme-ale31jo.herokuapp.com/api/posts/create",
