@@ -7,7 +7,7 @@ const Post = ({ postcomment, image, username }) => {
         <React.Fragment>
             <div
                 className="col-md-3 col-sm-4 mb-2 mr-1 col-xs-12"
-                style={{ height: "300px" }}
+                style={{ height: "350px" }}
             >
                 <div className="card" style={{ width: "15rem" }}>
                     <div className="card-body" style={{ height: "110px" }}>
@@ -18,7 +18,7 @@ const Post = ({ postcomment, image, username }) => {
                         src={image}
                         className="card-img-top"
                         alt="Post image"
-                        style={{ height: "190px" }}
+                        style={{ height: "240px", objectFit: "cover" }}
                     />
                 </div>
             </div>
