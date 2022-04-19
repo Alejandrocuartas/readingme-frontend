@@ -27,7 +27,7 @@ const HomePage = () => {
 
     return (
         <React.Fragment>
-            <div className="container container-fluid mt-4">
+            <div className="container container-fluid">
                 <div className="row">
                     {data.posts.reverse().map((post) => {
                         return (
