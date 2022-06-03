@@ -1,4 +1,5 @@
 import React, { useState, createContext } from "react";
+import io from "socket.io-client";
 
 const logContext = createContext();
 
@@ -10,6 +11,7 @@ const Context = ({ children }) => {
         setLogState: (newState) => {
             setLogState(newState);
         },
+        socket: io("https://readingme-ale31jo.herokuapp.com"),
     };
 
     return (

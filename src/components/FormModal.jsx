@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import { logContext } from "../stateManager";
 
 import Modal from "./Modal";
 
 const FormModal = ({ isOpen, onClose, renderParam, setRenderParam }) => {
     const [loading, setLoading] = useState(false);
+    const { socket } = useContext(logContext);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(e);
         const formdata = new FormData(e.target);
-        console.log(formdata);
-
         const requestOptions = {
             method: "POST",
             body: formdata,
@@ -30,11 +31,9 @@ const FormModal = ({ isOpen, onClose, renderParam, setRenderParam }) => {
                 alert("You have to login");
                 location.reload();
             } else {
-                setTimeout(() => {
-                    setLoading(false);
-                    setRenderParam(!renderParam);
-                    onClose();
-                }, 4000);
+                setLoading(false);
+                socket.emit("new-post", true);
+                onClose();
             }
         } catch (error) {
             setLoading(false);

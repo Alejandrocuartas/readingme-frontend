@@ -1,28 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import Cookie from "js-cookie";
 import Post from "../components/Post";
 import FormModal from "../components/FormModal";
-import Cookie from "js-cookie";
+import { logContext } from "../stateManager";
 Cookie.remove("userToken");
 const HomePage = () => {
     const [loading, setLoading] = useState(true);
     const [isOpen, setOpen] = useState(false);
     const [data, setData] = useState();
-    const [renderParam, setRenderParam] = useState(false);
+    const { socket } = useContext(logContext);
     const onClose = () => setOpen(false);
     useEffect(() => {
-        fetch("https://readingme-ale31jo.herokuapp.com/api/posts").then(
-            async (res) => {
-                if (!res.ok) {
-                    return null;
-                }
-                const response = await res.json();
-                setData(response);
-                setLoading(false);
-            }
-        );
-    }, [renderParam]);
+        socket.on("get-posts", (posts) => {
+            setData(posts);
+            setLoading(false);
+        });
+    }, []);
     if (loading) {
-        return <h1>Loading...</h1>;
+        return (
+            <div>
+                <h1>Loading...</h1>
+                <button
+                    onClick={(e) => {
+                        socket.emit("data", { g: 5 });
+                    }}
+                >
+                    t
+                </button>
+                <button
+                    onClick={(e) => {
+                        socket.emit("data", { g: 0 });
+                    }}
+                >
+                    a
+                </button>
+            </div>
+        );
     }
 
     return (
@@ -48,12 +61,7 @@ const HomePage = () => {
             >
                 New post
             </button>
-            <FormModal
-                renderParam={renderParam}
-                setRenderParam={setRenderParam}
-                onClose={onClose}
-                isOpen={isOpen}
-            ></FormModal>
+            <FormModal onClose={onClose} isOpen={isOpen}></FormModal>
         </React.Fragment>
     );
 };
