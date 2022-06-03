@@ -17,25 +17,7 @@ const HomePage = () => {
         });
     }, []);
     if (loading) {
-        return (
-            <div>
-                <h1>Loading...</h1>
-                <button
-                    onClick={(e) => {
-                        socket.emit("data", { g: 5 });
-                    }}
-                >
-                    t
-                </button>
-                <button
-                    onClick={(e) => {
-                        socket.emit("data", { g: 0 });
-                    }}
-                >
-                    a
-                </button>
-            </div>
-        );
+        return <h1>Loading...</h1>;
     }
 
     return (
