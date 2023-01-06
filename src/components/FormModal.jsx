@@ -22,7 +22,7 @@ const FormModal = ({ isOpen, onClose, renderParam, setRenderParam }) => {
             }
             setLoading(true);
             const res = await fetch(
-                "https://readingme-ale31jo.herokuapp.com/api/posts/create",
+                "https://readingme.onrender.com/api/posts/create",
                 requestOptions
             );
 

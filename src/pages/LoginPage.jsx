@@ -24,12 +24,12 @@ const LoginPage = () => {
         };
         try {
             const res = await fetch(
-                `https://readingme-ale31jo.herokuapp.com/api/${url}`,
+                `https://readingme.onrender.com/api/${url}`,
                 options
             );
             if (logState === "signup") {
                 await fetch(
-                    "https://readingme-ale31jo.herokuapp.com/api/auth/login",
+                    "https://readingme.onrender.com/api/auth/login",
                     options
                 );
             }

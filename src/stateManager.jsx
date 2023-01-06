@@ -11,7 +11,7 @@ const Context = ({ children }) => {
         setLogState: (newState) => {
             setLogState(newState);
         },
-        socket: io("https://readingme-ale31jo.herokuapp.com"),
+        socket: io("https://readingme.onrender.com"),
     };
 
     return (
